@@ -1,0 +1,115 @@
+<html>
+
+	<head>
+		<title>fungraph3D</title>
+		<style>
+			* {
+				margin: 0px auto;
+			}
+			body { margin: 0; }
+			#input-pokoke {
+				width: 25%;
+				height: 100%;
+				background: rgb(51,153,255);
+				position: fixed;
+				float: left;
+			}
+			#axes-holder {
+				width: 75%;
+				height: 100%;
+				float: right;
+			}
+			#axes {
+				width: 100%;
+				height: 100%;
+			}
+			#logo {
+				padding-top: 25px;
+			}
+			#img-logo {
+				width: 70%;
+				display: block;
+				margin: auto;
+			}
+			#input-form {
+				margin-top: 20px;
+				padding: 5px 20px;
+			}
+			.btn {
+				width: auto;
+				padding: 4px 6.5px;
+				margin-left: 6px;
+				border: 1px solid #888;
+				background: #EEE;
+			}
+			.btn:hover {
+				cursor: pointer;
+			}
+			.btn-op {
+				width: 100%;
+				margin-left: 0px;
+				padding: 5px 8px;
+			}
+			.btn-primary {
+				background: #FFF;
+			}
+			.form-control {
+				padding: 5px 9px;
+				border: 1px solid #888;
+			}
+			.input-style {
+				width: 84%;
+				margin-top: 15px;
+				margin-bottom: -7px;
+				margin-left: 8%;
+				margin-right: 8%;
+				text-align: center;
+			}
+			.part-3 {
+				width: 27%;
+				margin-right: -8%;
+			}
+		</style>
+	</head>
+	
+	<body>
+	
+		<div id="input-pokoke">
+			<div id="logo"><img id="img-logo" src="logo.png" /></div>
+			<div id="input-form">
+				<input id="r" class="form-control input-style part-3" type="text" placeholder="RED" value="51" />
+				<input id="g" class="form-control input-style part-3" type="text" placeholder="GREEN" value="153" />
+				<input id="b" class="form-control input-style part-3" type="text" placeholder="BLUE" value="255" />
+				<input id="length" class="form-control input-style" type="text" placeholder="length" value="10" />
+				<input id="x" class="form-control input-style part-3" type="text" placeholder="x" value="0" />
+				<input id="y" class="form-control input-style part-3" type="text" placeholder="y" value="0" />
+				<input id="z" class="form-control input-style part-3" type="text" placeholder="z" value="0" />
+				<input id="gaweKotak" class="btn btn-op btn-primary input-style" type="submit" value="Cube" />
+				<input id="gaweBal" class="btn btn-op btn-primary input-style" type="submit" value="Sphere" />
+				<input id="rx" class="form-control input-style part-3" type="text" placeholder="rx" value="0" />
+				<input id="ry" class="form-control input-style part-3" type="text" placeholder="ry" value="0" />
+				<input id="rz" class="form-control input-style part-3" type="text" placeholder="rz" value="0" />
+				<input id="rKotak" class="btn btn-op btn-primary input-style" type="submit" value="RCube" />
+				<input id="rBal" class="btn btn-op btn-primary input-style" type="submit" value="RSphere" />
+				<input id="tx" class="form-control input-style part-3" type="text" placeholder="tx" value="0" />
+				<input id="ty" class="form-control input-style part-3" type="text" placeholder="ty" value="0" />
+				<input id="tz" class="form-control input-style part-3" type="text" placeholder="tz" value="0" />
+				<input id="tKotak" class="btn btn-op btn-primary input-style" type="submit" value="TCube" />
+				<input id="tBal" class="btn btn-op btn-primary input-style" type="submit" value="TSphere" />
+				<input id="reset" class="btn btn-op btn-primary input-style" type="submit" value="Reset" />
+			</div>
+		</div>
+		<div id="axes-holder">
+			<div id="axes">
+				<!-- 3Daxes di-append di sini -->
+			</div>
+		</div>
+		
+		<script src="js/three.min.js"></script>
+		<script src="js/controls/TrackballControls.js"></script> <!-- ntah kenapa masih gagal buat trackingnya -->
+		<script src="js/Axes3D.js"></script><!--
+		<script src="js/class/Object3D.js"></script>-->
+		<script src="js/init.js"></script>
+	</body>
+	
+</html>
