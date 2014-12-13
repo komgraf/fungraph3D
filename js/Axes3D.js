@@ -2,7 +2,7 @@ renderer = new THREE.WebGLRenderer( { antialias: true } );
 
 axesHolder = document.getElementById( 'axes' );
 renderer.setSize( axesHolder.offsetWidth, axesHolder.offsetHeight );
-renderer.setClearColorHex( "#FFF", 1.0 );
+renderer.setClearColorHex( "#000", 1.0 );
 axesHolder.appendChild( renderer.domElement );
 
 scene = new THREE.Scene();
@@ -59,6 +59,17 @@ function buildCamera() {
 		
 	controls.staticMoving = true;
 	controls.dynamicDampingFactor = 0.3;
+	
+	var ambientLight = new THREE.AmbientLight( 0x404040 ); // soft white light
+	scene.add( ambientLight );
+	
+	var pointLight1 = new THREE.PointLight( "#FFF", 1, 0 );
+	pointLight1.position.set( 50, 50, -50 );
+	scene.add( pointLight1 );
+	
+	var pointLight2 = new THREE.PointLight( "#FFF", 1, 0 );
+	pointLight2.position.set( -90, 20, -50 );
+	scene.add( pointLight2 );
 }
 
 function animate() {
@@ -85,7 +96,7 @@ function createCube( length, r, g, b, x, y, z ) {
 	if( cube!=null ) {
 		removeCube();
 	}
-	cube = new THREE.Mesh( new THREE.CubeGeometry( length, length, length ), new THREE.MeshBasicMaterial( { color: "rgb("+ r +","+ g +","+ b +")", wireframe: false } ) );
+	cube = new THREE.Mesh( new THREE.CubeGeometry( length, length, length ), new THREE.MeshPhongMaterial( { color: "rgb("+ r +","+ g +","+ b +")", shininess: 20 } ) );
 	cube.position.set( x, y, z );
 	scene.add( cube );
 	/* buat cek rotasi bener apa gak, meh pake label males nyari -> sprite
@@ -98,7 +109,8 @@ function createBox( ax, r, g, b, x, y, z ) {
 	if( box!=null ) {
 		removeBox();
 	}
-	box = new THREE.Mesh( new THREE.CubeGeometry( ax, ax, ax ), new THREE.MeshBasicMaterial( { color: "rgb("+ r +","+ g +","+ b +")", wireframe: false } ) );
+	//box = new THREE.Mesh( new THREE.CubeGeometry( ax, ax, ax ), new THREE.MeshBasicMaterial( { color: "rgb("+ r +","+ g +","+ b +")", wireframe: false } ) );
+	box = new THREE.Mesh( new THREE.CubeGeometry( ax, ax, ax ), new THREE.MeshPhongMaterial( { color: "rgb("+ r +","+ g +","+ b +")", shininess: 20 } ) );
 	box.position.set( x, y, z );
 	scene.add( box );
 }
@@ -107,7 +119,8 @@ function createSphere( radius, r, g, b, x, y, z ) {
 	if( sphere!=null ) {
 		removeSphere();
 	}
-	sphere = new THREE.Mesh( new THREE.SphereGeometry( radius ), new THREE.MeshBasicMaterial( { color: "rgb("+ r +","+ g +","+ b +")", wireframe: false } ) );
+	//sphere = new THREE.Mesh( new THREE.SphereGeometry( radius ), new THREE.MeshBasicMaterial( { color: "rgb("+ r +","+ g +","+ b +")", wireframe: false } ) );
+	sphere = new THREE.Mesh( new THREE.SphereGeometry( radius ), new THREE.MeshPhongMaterial( { color: "rgb("+ r +","+ g +","+ b +")", shininess: 20 } ) );
 	sphere.position.set( x, y, z );
 	scene.add( sphere );
 }
@@ -189,4 +202,22 @@ function rotateSphere( x, y, z ) {
 	sphere.rotation.x += x*Math.PI/180;
 	sphere.rotation.y += y*Math.PI/180;
 	sphere.rotation.z += z*Math.PI/180;
+}
+
+function scaleCube( x, y, z ) {
+	cube.scale.x = parseFloat( x );
+	cube.scale.y = parseFloat( y );
+	cube.scale.z = parseFloat( z );
+}
+
+function scaleBox( x, y, z ) {
+	box.scale.x = parseFloat( x );
+	box.scale.y = parseFloat( y );
+	box.scale.z = parseFloat( z );
+}
+
+function scaleSphere( x, y, z ) {
+	sphere.scale.x = parseFloat( x );
+	sphere.scale.y = parseFloat( y );
+	sphere.scale.z = parseFloat( z );
 }
