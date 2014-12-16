@@ -5,6 +5,7 @@
 		<style>
 			* {
 				margin: 0px auto;
+				font-family: calibri;
 			}
 			body { margin: 0; }
 			#input-pokoke {
@@ -30,9 +31,10 @@
 				width: 70%;
 				display: block;
 				margin: auto;
+				margin-top: 20px;
 			}
 			#input-form {
-				margin-top: 20px;
+				margin-top: 10px;
 				padding: 5px 20px;
 			}
 			.btn {
@@ -58,16 +60,33 @@
 				border: 1px solid #888;
 			}
 			.input-style {
-				width: 84%;
+				width: 83%;
 				margin-top: 15px;
 				margin-bottom: -7px;
 				margin-left: 8%;
 				margin-right: 8%;
 				text-align: center;
 			}
+			.part-2 {
+				width: 41%;
+				margin-right: -8%;
+			}
 			.part-3 {
 				width: 27%;
 				margin-right: -8%;
+			}
+			div[id^='control-function'] {
+				width: 83%;
+				margin-top: 23px;
+				margin-bottom: -10px;
+				margin-left: 8%;
+				margin-right: 8%;
+				text-align: center;
+				color: #FFF;
+				font-size: 1em;
+				padding: 5px 0px;
+				border: 1px solid #FFF;
+				cursor: pointer;
 			}
 		</style>
 	</head>
@@ -77,26 +96,44 @@
 		<div id="input-pokoke">
 			<div id="logo"><img id="img-logo" src="logo.png" /></div>
 			<div id="input-form">
-				<input id="r" class="form-control input-style part-3" type="text" placeholder="RED" value="51" />
-				<input id="g" class="form-control input-style part-3" type="text" placeholder="GREEN" value="153" />
-				<input id="b" class="form-control input-style part-3" type="text" placeholder="BLUE" value="255" />
-				<input id="length" class="form-control input-style" type="text" placeholder="length" value="10" />
-				<input id="x" class="form-control input-style part-3" type="text" placeholder="x" value="0" />
-				<input id="y" class="form-control input-style part-3" type="text" placeholder="y" value="0" />
-				<input id="z" class="form-control input-style part-3" type="text" placeholder="z" value="0" />
-				<input id="gaweKotak" class="btn btn-op btn-primary input-style" type="submit" value="Cube" />
-				<input id="gaweBal" class="btn btn-op btn-primary input-style" type="submit" value="Sphere" />
-				<input id="rx" class="form-control input-style part-3" type="text" placeholder="rx" value="0" />
-				<input id="ry" class="form-control input-style part-3" type="text" placeholder="ry" value="0" />
-				<input id="rz" class="form-control input-style part-3" type="text" placeholder="rz" value="0" />
-				<input id="rKotak" class="btn btn-op btn-primary input-style" type="submit" value="RCube" />
-				<input id="rBal" class="btn btn-op btn-primary input-style" type="submit" value="RSphere" />
-				<input id="tx" class="form-control input-style part-3" type="text" placeholder="tx" value="0" />
-				<input id="ty" class="form-control input-style part-3" type="text" placeholder="ty" value="0" />
-				<input id="tz" class="form-control input-style part-3" type="text" placeholder="tz" value="0" />
-				<input id="tKotak" class="btn btn-op btn-primary input-style" type="submit" value="TCube" />
-				<input id="tBal" class="btn btn-op btn-primary input-style" type="submit" value="TSphere" />
+				<input id="r" class="form-control input-style part-3" type="text" placeholder="RED" title="RED" value="51" />
+				<input id="g" class="form-control input-style part-3" type="text" placeholder="GREEN" title="GREEN" value="153" />
+				<input id="b" class="form-control input-style part-3" type="text" placeholder="BLUE" title="BLUE" value="255" />
+				<input id="length" class="form-control input-style" type="text" placeholder="length" title="length/radius" value="10" />
+				<input id="x" class="form-control input-style part-3" type="text" placeholder="x" title="vector X" value="0" />
+				<input id="y" class="form-control input-style part-3" type="text" placeholder="y" title="vector Y" value="0" />
+				<input id="z" class="form-control input-style part-3" type="text" placeholder="z" title="vector Z" value="0" />
+				<input id="gaweKotak" class="btn btn-op btn-primary input-style part-2" type="submit" value="Cube" />
+				<input id="gaweBal" class="btn btn-op btn-primary input-style part-2" type="submit" value="Sphere" />
 				<input id="reset" class="btn btn-op btn-primary input-style" type="submit" value="Reset" />
+				
+				<div id="control-function-1">ROTATION</div>
+				<div id="function-1">
+					<input id="rx" class="form-control input-style part-3" type="text" placeholder="rx" title="degree X" value="0" />
+					<input id="ry" class="form-control input-style part-3" type="text" placeholder="ry" title="degree Y" value="0" />
+					<input id="rz" class="form-control input-style part-3" type="text" placeholder="rz" title="degree Z" value="0" />
+					<input id="rKotak" class="btn btn-op btn-primary input-style part-2" type="submit" value="RCube" />
+					<input id="rBal" class="btn btn-op btn-primary input-style part-2" type="submit" value="RSphere" />
+				</div>
+				
+				<div id="control-function-2">TRANSLATION</div>
+				<div id="function-2">
+					<input id="tx" class="form-control input-style part-3" type="text" placeholder="tx" title="distance X" value="0" />
+					<input id="ty" class="form-control input-style part-3" type="text" placeholder="ty" title="distance Y" value="0" />
+					<input id="tz" class="form-control input-style part-3" type="text" placeholder="tz" title="distance Z" value="0" />
+					<input id="tKotak" class="btn btn-op btn-primary input-style part-2" type="submit" value="TCube" />
+					<input id="tBal" class="btn btn-op btn-primary input-style part-2" type="submit" value="TSphere" />
+				</div>
+				
+				<div id="control-function-3">SCALING</div>
+				<div id="function-3">
+					<input id="scale" class="form-control input-style" type="text" placeholder="scale" title="scale" value="1" />
+					<input id="sKotak" class="btn btn-op btn-primary input-style part-2" type="submit" value="SCube" />
+					<input id="sBal" class="btn btn-op btn-primary input-style part-2" type="submit" value="SSphere" />
+				</div>
+				
+				
+				
 			</div>
 		</div>
 		<div id="axes-holder">
@@ -106,6 +143,7 @@
 		</div>
 		
 		<script src="js/three.min.js"></script>
+		<script src="js/jquery.min.js"></script>
 		<script src="js/controls/TrackballControls.js"></script> <!-- ntah kenapa masih gagal buat trackingnya -->
 		<script src="js/Axes3D.js"></script><!--
 		<script src="js/class/Object3D.js"></script>-->

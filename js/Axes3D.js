@@ -204,20 +204,20 @@ function rotateSphere( x, y, z ) {
 	sphere.rotation.z += z*Math.PI/180;
 }
 
-function scaleCube( x, y, z ) {
-	cube.scale.x = parseFloat( x );
-	cube.scale.y = parseFloat( y );
-	cube.scale.z = parseFloat( z );
+function scaleCube( scale ) {
+	cube.scale.x = parseFloat( scale );
+	cube.scale.y = parseFloat( scale );
+	cube.scale.z = parseFloat( scale );
 }
 
-function scaleBox( x, y, z ) {
-	box.scale.x = parseFloat( x );
-	box.scale.y = parseFloat( y );
-	box.scale.z = parseFloat( z );
+function scaleBox( scale ) {
+	box.scale.x = parseFloat( scale );
+	box.scale.y = parseFloat( scale );
+	box.scale.z = parseFloat( scale );
 }
 
-function scaleSphere( x, y, z ) {
-	sphere.scale.x = parseFloat( x );
-	sphere.scale.y = parseFloat( y );
-	sphere.scale.z = parseFloat( z );
+function scaleSphere( scale ) {
+	sphere.scale.x = parseFloat( scale );
+	sphere.scale.y = parseFloat( scale );
+	sphere.scale.z = parseFloat( scale );
 }

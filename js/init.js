@@ -1,4 +1,12 @@
-window.onload = init;
+$(document).ready( function() {
+	init();/*
+	$(document).scroll( function() {
+		if( $(document).scrollTop() >= 275 )
+			$('#super-header').slideDown(200);
+		else
+			$('#super-header').slideUp(200);
+	} );*/
+} );
 
 function init() {
 	//var axes3D = new Axes3D( new THREE.WebGLRenderer( {	antialias: true } ) );
@@ -9,44 +17,79 @@ function init() {
 	for( ;; )
 		axes3D.animate();*/
 	
-	var gaweKotak = get('gaweKotak');
-	gaweKotak.onclick = function() {
-		createCube( get('length').value, get('r').value, get('g').value, get('b').value, get('x').value, get('y').value, get('z').value );
-	}
+	$('#function-1').hide();
+	$('#function-2').hide();
+	$('#function-3').hide();
 	
-	var gaweBal = get('gaweBal');
-	gaweBal.onclick = function() {
-		createSphere( get('length').value, get('r').value, get('g').value, get('b').value, get('x').value, get('y').value, get('z').value );
-	}
+	$('#gaweKotak').click( function() {
+		createCube( $('#length').val(), $('#r').val(), $('#g').val(), $('#b').val(), $('#x').val(), $('#y').val(), $('#z').val() );
+	} );
 	
-	var rKotak = get('rKotak');
-	rKotak.onclick = function() {
-		rotateCube( get('rx').value, get('ry').value, get('rz').value );
-	}
+	$('#gaweBal').click( function() {
+		createSphere( $('#length').val(), $('#r').val(), $('#g').val(), $('#b').val(), $('#x').val(), $('#y').val(), $('#z').val() );
+	} );
 	
-	var rBal = get('rBal');
-	rBal.onclick = function() {
-		rotateSphere( get('rx').value, get('ry').value, get('rz').value );
-	}
+	$('#rKotak').click( function() {
+		rotateCube( $('#rx').val(), $('#ry').val(), $('#rz').val() );
+	} );
 	
-	var tKotak = get('tKotak');
-	tKotak.onclick = function() {
-		translateCube( get('tx').value, get('ty').value, get('tz').value );
-		//alert( get('tx').value +" "+ get('ty').value +" "+ get('tz').value );
-		//translateCube( 0, 0, -20 );
-	}
+	$('#rBal').click( function() {
+		rotateSphere( $('#rx').val(), $('#ry').val(), $('#rz').val() );
+	} );
 	
-	var tBal = get('tBal');
-	tBal.onclick = function() {
-		translateSphere( get('tx').value, get('ty').value, get('tz').value );
-	}
+	$('#tKotak').click( function() {
+		translateCube( $('#tx').val(), $('#ty').val(), $('#tz').val() );
+	} );
 	
-	var reset = get('reset');
-	reset.onclick = function() {
+	$('#tBal').click( function() {
+		translateSphere( $('#tx').val(), $('#ty').val(), $('#tz').val() );
+	} );
+	
+	$('#sKotak').click( function() {
+		scaleCube( $('#scale').val() );
+	} );
+	
+	$('#sBal').click( function() {
+		scaleSphere( $('#scale').val() );
+	} );
+	
+	$('#reset').click( function() {
 		clear();
-	}
+	} );
+	
+	$('#control-function-1').click( function() {
+		tampilkan( $('#function-1') );
+	} );
+	
+	$('#control-function-2').click( function() {
+		tampilkan( $('#function-2') );
+	} );
+	
+	$('#control-function-3').click( function() {
+		tampilkan( $('#function-3') );
+	} );
+	
+	/*
+	var tKotak = $('#tKotak');
+	tKotak.onclick = function() {
+		translateCube( $('#tx').val(), $('#ty').val(), $('#tz').val() );
+		//alert( $('#tx').val() +" "+ $('#ty').val() +" "+ $('#tz').val() );
+		//translateCube( 0, 0, -20 );
+	}*/
 }
 
+var activeFuu;
+function tampilkan( myFuu ) {
+	if( activeFuu!=null ) {
+		if( activeFuu.attr('id')===myFuu.attr('id') )
+			return;
+		activeFuu.slideToggle(400);
+	}
+	activeFuu = myFuu;
+	activeFuu.slideToggle(400);
+	//alert("masuuuk");
+}
+/*
 function get(id) {
 	return document.getElementById(id);
-}
+}*/
